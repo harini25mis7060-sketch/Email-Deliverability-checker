@@ -15,7 +15,17 @@ The app evaluates email addresses across three verification stages without sendi
 3. **SMTP Handshake Probe**: Initiates an SMTP connection to the destination mail server and issues `HELO`, `MAIL FROM`, and `RCPT TO`
     commands to check mailbox status,
 5. then terminates the connection before any message is sent.
-   
+
+# Local Setup
+1.)Clone the repository: Download the project files to your computer by running :
+  **git clone https://github.com/harini25mis7060-sketch/Email-Deliverability-checker.git**
+  
+2.)Navigate into the project folder by running cd Email-Deliverability-checker.
+
+3.)Install all required Python packages by running pip install -r requirements.txt.
+
+4.)Launch the application in your browser by running python -m streamlit run app.py.
+
 
 # Status Definitions:-
 1.) **Likely to be delivered**: The destination mail server explicitly accepted the recipient address (`250 OK`).
@@ -34,24 +44,14 @@ Whenever the program tries to open a connection specifically on Port 25, the clo
 -  Disposable/burner email domains (Likely to bounce)
 
 # What the Deployed Version Cannot Check:
-- **Live Mailbox Existence Probe (Port 25)**: Because cloud providers block direct outbound SMTP(simple mail transfer protocol) traffic on port 25,
+- Live Mailbox Existence Probe (Port 25): Because cloud providers block direct outbound SMTP(simple mail transfer protocol) traffic on port 25.
 -  the handshake to verify individual mailbox existence will time out. For valid domains, the status will correctly report as **Unknown**.
-- **Anti-Harvester Mail Servers**: Major providers deliberately do not verify individual recipients
--  at the SMTP stage to protect users from address scraping.
+- Anti-Harvester Mail Servers: Major providers deliberately do not verify individual recipients
+-  At the SMTP stage to protect users from address scraping.
 
  **Note**: To observe live SMTP responses for addresses that accept recipient probes,run the application locally 
   on a network where port 25 is not restricted by the internet service provider.
 
-
-# Local Setup
-1.)Clone the repository: Download the project files to your computer by running :
-  **git clone https://github.com/harini25mis7060-sketch/Email-Deliverability-checker.git**
-  
-2.)Navigate into the project folder by running cd Email-Deliverability-checker.
-
-3.)Install all required Python packages by running pip install -r requirements.txt.
-
-4.)Launch the application in your browser by running python -m streamlit run app.py.
 
 
 
