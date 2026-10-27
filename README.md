@@ -29,8 +29,10 @@ The app evaluates email addresses across three verification stages without sendi
 
 # Status Definitions:-
 1.) **Likely to be delivered**: The destination mail server explicitly accepted the recipient address (`250 OK`).
+
 2.) **Likely to bounce**: Syntax is invalid, the domain does not exist, no mail exchange servers exist, or the mail server returned
   an explicit rejection (`550 / 554 Mailbox not found`).
+  
 3.) **Unknown**: Verification could not be conclusively determined.
 
 
@@ -45,7 +47,7 @@ Whenever the program tries to open a connection specifically on Port 25, the clo
 
 # What the Deployed Version Cannot Check:
 - Live Mailbox Existence Probe (Port 25): Because cloud providers block direct outbound SMTP(simple mail transfer protocol) traffic on port 25.
--  the handshake to verify individual mailbox existence will time out. For valid domains, the status will correctly report as **Unknown**.
+-  The handshake to verify individual mailbox existence will time out. For valid domains, the status will correctly report as **Unknown**.
 - Anti-Harvester Mail Servers: Major providers deliberately do not verify individual recipients
 -  At the SMTP stage to protect users from address scraping.
 
